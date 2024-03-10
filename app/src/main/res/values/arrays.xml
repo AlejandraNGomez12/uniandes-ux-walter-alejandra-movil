@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="record_medicine">
+        <item>--Ninguno--</item>
+        <item>Medicamento 1</item>
+        <item>Medicamento 2</item>
+        <item>Medicamento 3</item>
+    </string-array>
+    <string-array name="record_tone">
+        <item>Tono 1</item>
+        <item>Tono 2</item>
+        <item>Tono 3</item>
+    </string-array>
+</resources>

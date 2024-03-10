@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">TimelyHealth</string>
+    <string name="start_title">Inicio</string>
+    <string name="exit_app">Salir de la aplicación</string>
+    <string name="back_button">Volver</string>
+    <string name="login_title">Iniciar Sesión</string>
+    <string name="username">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="go_to_alarm">Ir a las alarmas</string>
+    <string name="go_to_medical_appointments">Ir a las citas medicas</string>
+    <string name="go_to_documents">Ir a los documentos</string>
+    <string name="alarm_title">Alarmas</string>
+    <string name="medical_appointments_title">Citas Medicas</string>
+    <string name="documents_title">Documentos</string>
+    <string name="welcome">Bienvenido</string>
+    <string name="alarms_title_list">Lista Alarmas</string>
+    <string name="appoiments_title_list">Lista Citas Médicas</string>
+    <string name="add">Crear</string>
+    <string name="add_alarm">Crear Alarma</string>
+    <string name="add_appoiment">Crear Cita Médica</string>
+
+    <string name="loading_title">Cargando...</string>
+    <string name="error_title">Ha ocurrido un error...</string>
+    <string name="error_retry">Reintentar</string>
+    <string name="username_placeholder">Ingrese su usuario</string>
+    <string name="password_placeholder">Ingrese su contraseña</string>
+
+
+
+    <string name="title">Título</string>
+    <string name="medicine">Medicamento</string>
+    <string name="tone">Tono</string>
+    <string name="date">Fecha</string>
+    <string name="description">Descripción</string>
+    <string name="observacion">Observación</string>
+    <string name="enviar">Enviar</string>
+
+    <string name="file">Archivo</string>
+    <string name="specialty">Especialidad</string>
+    <string name="cancel">Cancelar</string>
+
+
+
+
+</resources>

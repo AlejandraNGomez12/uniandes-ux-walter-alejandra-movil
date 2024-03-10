@@ -1,0 +1,6 @@
+<resources>
+
+    <style name="Theme.TimelyHealth" parent="android:Theme.Material.Light.DarkActionBar">
+
+    </style>
+</resources>
