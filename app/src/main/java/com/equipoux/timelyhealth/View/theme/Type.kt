@@ -1,4 +1,4 @@
-package com.equipoux.timelyhealth.ui.theme
+package com.equipoux.timelyhealth.View.screens.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
