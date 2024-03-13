@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.equipoUX.timelyhealth"
+    namespace = "com.equipoux.timelyhealth"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.equipoUX.timelyhealth"
+        applicationId = "com.equipoux.timelyhealth"
         minSdk = 25
         targetSdk = 33
         versionCode = 1
@@ -64,13 +64,8 @@ dependencies {
     implementation("androidx.datastore:datastore-preferences:1.0.0")
 
     implementation("commons-validator:commons-validator:1.7")
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
-    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
-    implementation("com.squareup.okhttp3:okhttp:4.11.0")
 
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
-    implementation("io.github.serpro69:kotlin-faker:1.15.0")
 
     implementation("io.coil-kt:coil-compose:2.4.0")
 

@@ -34,7 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.equipoUX.timelyhealth.R
+import com.equipoux.timelyhealth.R
 
 @Composable
 fun WelcomeScreen (
@@ -100,7 +100,7 @@ fun WelcomeScreen (
 
             Button(
                 onClick = {
-
+                    navController.navigate("${TimelyHealthAppScreen.Appoiment.name}")
                           },
                 modifier = Modifier
                     .width(150.dp)

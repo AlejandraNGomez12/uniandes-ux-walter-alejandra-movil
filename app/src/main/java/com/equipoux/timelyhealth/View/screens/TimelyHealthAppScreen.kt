@@ -30,12 +30,15 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.equipoUX.timelyhealth.R
+import com.equipoux.timelyhealth.R
 import com.equipoux.timelyhealth.View.screens.StartScreen
+import com.equipoux.timelyhealth.ViewModel.AppoimentsViewModel
 
 enum class TimelyHealthAppScreen(@StringRes val title: Int) {
     Welcome(title = R.string.welcome),
-    Start(title=R.string.login_title)
+    Start(title=R.string.login_title),
+    Appoiment(title = R.string.appoiments_title_list),
+
 }
 
 
@@ -132,7 +135,7 @@ fun TimelyHealthNavBar(
                 label = { Text(stringResource(R.string.medical_appointments_title),
                     color = colorResource(id = R.color.blanco)) },
                 selected = activeRouteName.startsWith(TimelyHealthAppScreen.Start.name),
-                onClick = {  },
+                onClick = { navigate(TimelyHealthAppScreen.Appoiment.name) },
                 colors = androidx.compose.material3.NavigationBarItemDefaults
                     .colors(
                         indicatorColor = colorResource(id = R.color.azul_6)
@@ -167,6 +170,7 @@ fun TimelyHealthNavBar(
 fun TimelyHealthApp(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
+    appoimentsViewModel: AppoimentsViewModel= viewModel(factory = AppoimentsViewModel.Factory),
 
     ) {
     val backStackEntry by navController.currentBackStackEntryAsState()
@@ -225,6 +229,13 @@ fun TimelyHealthApp(
                     )
                 }
 
+                composable(route = TimelyHealthAppScreen.Appoiment.name) {
+                    AppoimentsScreen(
+                        appoimentsViewModel.appoimentsUiState,
+                        retryAction = appoimentsViewModel::getAppoiments,
+                        goToCreate = { navController.navigate("${TimelyHealthAppScreen.Appoiment.name}/Add") }
+                    )
+                }
 
 
             }

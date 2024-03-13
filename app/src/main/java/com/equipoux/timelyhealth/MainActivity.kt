@@ -1,4 +1,4 @@
-package com.equipoUX.timelyhealth
+package com.equipoux.timelyhealth
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
