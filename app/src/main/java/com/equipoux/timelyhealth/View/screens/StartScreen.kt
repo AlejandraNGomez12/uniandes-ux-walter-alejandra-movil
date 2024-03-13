@@ -1,4 +1,4 @@
-package com.equipoux.timelyhealth.View
+package com.equipoux.timelyhealth.View.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -194,7 +194,7 @@ fun StartScreen(
 
             Button(
                 onClick = {
-
+                    navController.navigate("Welcome")
                 },
                 modifier = Modifier
                     .width(150.dp)

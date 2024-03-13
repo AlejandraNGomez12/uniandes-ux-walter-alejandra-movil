@@ -8,7 +8,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.equipoux.timelyhealth.View.StartScreen
+import com.equipoux.timelyhealth.View.screens.StartScreen
+import com.equipoux.timelyhealth.View.screens.TimelyHealthApp
+import com.equipoux.timelyhealth.View.screens.StartScreen
 
 
 class MainActivity : ComponentActivity() {
@@ -21,6 +23,9 @@ class MainActivity : ComponentActivity() {
             NavHost(navController = navController, startDestination = "Start") {
                 composable(route = "Start") {
                     StartScreen(navController = navController)
+                }
+                composable(route = "Welcome") {
+                    TimelyHealthApp()
                 }
             }
 
