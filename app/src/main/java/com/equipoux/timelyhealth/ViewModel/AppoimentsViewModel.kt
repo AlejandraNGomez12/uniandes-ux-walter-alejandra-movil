@@ -10,7 +10,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.equipoux.timelyhealth.model.Datasource
-import com.equipoux.timelyhealth.model.models.Appoiment
+import com.equipoux.timelyhealth.Model.models.Appoiment
 import kotlinx.coroutines.launch
 import java.io.IOException
 

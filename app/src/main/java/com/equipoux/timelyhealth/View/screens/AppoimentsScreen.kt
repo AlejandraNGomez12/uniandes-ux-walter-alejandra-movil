@@ -1,4 +1,4 @@
-package com.equipoux.timelyhealth.View.screens
+package com.equipoUX.timelyhealth.View.screens
 
 import ErrorScreen
 import LoadingScreen
@@ -39,7 +39,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.equipoux.timelyhealth.R
-import com.equipoux.timelyhealth.model.models.Appoiment
+import com.equipoux.timelyhealth.Model.models.Appoiment
 import com.equipoux.timelyhealth.ViewModel.AppoimentsUiState
 
 @Composable

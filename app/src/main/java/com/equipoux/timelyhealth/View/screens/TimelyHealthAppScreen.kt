@@ -30,8 +30,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.equipoUX.timelyhealth.View.screens.AppoimentsScreen
 import com.equipoux.timelyhealth.R
-import com.equipoux.timelyhealth.View.screens.StartScreen
+import com.equipoux.timelyhealth.ViewModel.AppoimentAddViewModel
 import com.equipoux.timelyhealth.ViewModel.AppoimentsViewModel
 
 enum class TimelyHealthAppScreen(@StringRes val title: Int) {
@@ -171,6 +172,7 @@ fun TimelyHealthApp(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
     appoimentsViewModel: AppoimentsViewModel= viewModel(factory = AppoimentsViewModel.Factory),
+    appoimentAddViewModel: AppoimentAddViewModel = viewModel(factory = AppoimentAddViewModel.Factory),
 
     ) {
     val backStackEntry by navController.currentBackStackEntryAsState()
@@ -213,8 +215,6 @@ fun TimelyHealthApp(
             )
             {
 
-
-
                 composable(route = TimelyHealthAppScreen.Welcome.name) {
                     WelcomeScreen(
                         navController = navController,
@@ -237,6 +237,21 @@ fun TimelyHealthApp(
                     )
                 }
 
+                composable(
+                    route = "${TimelyHealthAppScreen.Appoiment.name}/Add"
+                ) {
+                    appoimentAddViewModel.resetFields()
+                    AppoimentAddScreen(
+                        appoimentAddViewModel.uiState,
+                        addAppoiment = appoimentAddViewModel::addAlbum,
+                        updateField = appoimentAddViewModel::updateField,
+                        onSuccess = {
+                            navController.navigateUp()
+                            appoimentsViewModel.getAppoiments()
+                        },
+                        navigateUp = { navController.navigateUp() }
+                    )
+                }
 
             }
         }

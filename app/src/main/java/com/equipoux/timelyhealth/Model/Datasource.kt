@@ -1,7 +1,7 @@
 package com.equipoux.timelyhealth.model
 
 
-import com.equipoux.timelyhealth.model.models.Appoiment
+import com.equipoux.timelyhealth.Model.models.Appoiment
 
 class Datasource {
 
