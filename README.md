@@ -9,7 +9,7 @@ TimelyHealth es una aplicación móvil diseñada exclusivamente para dispositivo
 Para ejecutar la aplicación existen dos alternativas:
 
 ### Usar el APK
-
+[Ir a apk](https://github.com/AlejandraNGomez12/uniandes-ux-walter-alejandra-movil/tree/main/apk)
 #### Requisitos
 
 1. Contar con un dispositivo con sistema operativo Android con versión L o superior, versión SDK 22 o superior.

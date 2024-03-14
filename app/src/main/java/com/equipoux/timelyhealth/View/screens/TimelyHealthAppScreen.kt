@@ -41,6 +41,8 @@ enum class TimelyHealthAppScreen(@StringRes val title: Int) {
     Start(title=R.string.login_title),
     Alarm(title = R.string.alarms_title_list),
     Appoiment(title = R.string.appoiments_title_list),
+    Alarm(title = R.string.alarm_title)
+
 }
 
 
