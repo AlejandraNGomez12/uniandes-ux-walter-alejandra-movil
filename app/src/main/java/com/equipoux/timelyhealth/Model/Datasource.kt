@@ -1,14 +1,28 @@
-package com.equipoux.timelyhealth.model
+package com.equipoUX.timelyhealth.model
 
 
-import com.equipoux.timelyhealth.Model.models.Appoiment
+import com.equipoUX.timelyhealth.model.models.Appoiment
+import com.equipoUX.timelyhealth.model.models.Alarm
 
 class Datasource {
+
+    fun loadAlarms() : List<Alarm> {
+        return listOf(
+            Alarm(id = 1, titulo = "Medicina General"),
+            Alarm(id = 2, titulo = "Control Diario"),
+            Alarm(id = 3, titulo = "Rayo X"),
+            Alarm(id = 4, titulo = "Fisioterapeuta")
+        )
+    }
 
     companion object {
         val loadAppoimnts: List<Appoiment>
             get() {
                 return Datasource().loadAppoimnts()
+            }
+        val loadAlarms: List<Alarm>
+            get() {
+                return Datasource().loadAlarms()
             }
     }
 

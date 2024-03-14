@@ -1,4 +1,4 @@
-package com.equipoux.timelyhealth.View.screens
+package com.equipoUX.timelyhealth.view.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -20,6 +20,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -47,9 +48,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.equipoux.timelyhealth.R
+import com.equipoUX.timelyhealth.R
 
 
+
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun StartScreen(
     navController: NavController,
@@ -195,6 +198,7 @@ fun StartScreen(
             Button(
                 onClick = {
                     navController.navigate("Welcome")
+
                 },
                 modifier = Modifier
                     .width(150.dp)

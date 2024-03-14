@@ -1,4 +1,4 @@
-package com.equipoux.timelyhealth.View.screens
+package com.equipoUX.timelyhealth.view.screens
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.*
@@ -30,15 +30,17 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.equipoUX.timelyhealth.View.screens.AppoimentsScreen
-import com.equipoux.timelyhealth.R
-import com.equipoux.timelyhealth.ViewModel.AppoimentAddViewModel
-import com.equipoux.timelyhealth.ViewModel.AppoimentsViewModel
+import com.equipoUX.timelyhealth.R
+import com.equipoUX.timelyhealth.viewModel.AlarmAddViewModel
+import com.equipoUX.timelyhealth.viewModel.AlarmsViewModel
+import com.equipoUX.timelyhealth.viewModel.AppoimentAddViewModel
+import com.equipoUX.timelyhealth.viewModel.AppoimentsViewModel
 
 enum class TimelyHealthAppScreen(@StringRes val title: Int) {
     Welcome(title = R.string.welcome),
     Start(title=R.string.login_title),
-    Appoiment(title = R.string.appoiments_title_list),
+    Alarm(title = R.string.alarms_title_list),
+    Appoiment(title = R.string.appoiments_title_list)
 
 }
 
@@ -116,8 +118,8 @@ fun TimelyHealthNavBar(
                 },
                 label = { Text(stringResource(R.string.alarm_title),
                     color = colorResource(id = R.color.blanco)) },
-                selected = activeRouteName.startsWith(TimelyHealthAppScreen.Start.name),
-                onClick = { },
+                selected = activeRouteName.startsWith(TimelyHealthAppScreen.Alarm.name),
+                onClick = { navigate(TimelyHealthAppScreen.Alarm.name) },
                 colors = androidx.compose.material3.NavigationBarItemDefaults
                     .colors(
                         indicatorColor = colorResource(id = R.color.azul_6)
@@ -135,7 +137,7 @@ fun TimelyHealthNavBar(
                 },
                 label = { Text(stringResource(R.string.medical_appointments_title),
                     color = colorResource(id = R.color.blanco)) },
-                selected = activeRouteName.startsWith(TimelyHealthAppScreen.Start.name),
+                selected = activeRouteName.startsWith(TimelyHealthAppScreen.Appoiment.name),
                 onClick = { navigate(TimelyHealthAppScreen.Appoiment.name) },
                 colors = androidx.compose.material3.NavigationBarItemDefaults
                     .colors(
@@ -171,7 +173,9 @@ fun TimelyHealthNavBar(
 fun TimelyHealthApp(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
+    alarmsViewModel: AlarmsViewModel= viewModel(factory = AlarmsViewModel.Factory),
     appoimentsViewModel: AppoimentsViewModel= viewModel(factory = AppoimentsViewModel.Factory),
+    alarmAddViewModel: AlarmAddViewModel = viewModel(factory = AlarmAddViewModel.Factory),
     appoimentAddViewModel: AppoimentAddViewModel = viewModel(factory = AppoimentAddViewModel.Factory),
 
     ) {
@@ -214,6 +218,37 @@ fun TimelyHealthApp(
                 modifier = modifier.padding(innerPadding)
             )
             {
+                composable(route = TimelyHealthAppScreen.Alarm.name) {
+                    AlarmsScreen(
+                        state = alarmsViewModel.alarmstUiState,
+                        retryAction = alarmsViewModel::getAlarms,
+                        goToCreate = { navController.navigate("${TimelyHealthAppScreen.Alarm.name}/Add") }
+                    )
+                }
+
+                composable(
+                    route = "${TimelyHealthAppScreen.Alarm.name}/Add"
+                ) {
+                    alarmAddViewModel.resetFields()
+                    AlarmAddScreen(
+                        alarmAddViewModel.uiState,
+                        addAlbum = alarmAddViewModel::addAlbum,
+                        updateField = alarmAddViewModel::updateField,
+                        onSuccess = {
+                            navController.navigateUp()
+                            alarmsViewModel.getAlarms()
+                        },
+                        navigateUp = { navController.navigateUp() },
+                        navController = navController
+                    )
+                }
+                composable(
+                    route = "${TimelyHealthAppScreen.Alarm.name}/alerta"
+                ) {
+                    alarmAddViewModel.resetFields()
+                    AlarmAlertaScreen(navController
+                    )
+                }
 
                 composable(route = TimelyHealthAppScreen.Welcome.name) {
                     WelcomeScreen(
@@ -228,13 +263,12 @@ fun TimelyHealthApp(
                         modifier = modifier
                     )
                 }
-
                 composable(route = TimelyHealthAppScreen.Appoiment.name) {
                     AppoimentsScreen(
                         appoimentsViewModel.appoimentsUiState,
                         retryAction = appoimentsViewModel::getAppoiments,
                         goToCreate = { navController.navigate("${TimelyHealthAppScreen.Appoiment.name}/Add") }
-                    )
+                        )
                 }
 
                 composable(
@@ -252,6 +286,7 @@ fun TimelyHealthApp(
                         navigateUp = { navController.navigateUp() }
                     )
                 }
+
 
             }
         }
