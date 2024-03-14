@@ -4,6 +4,10 @@
 
 TimelyHealth es una aplicación móvil diseñada exclusivamente para dispositivos Android. Esta app está diseñada para satisfacer las necesidades de los usuarios que tienen pacientes que estan en tratamientos o tienen algun tipo de tratamiento. Con TimelyHealth, puedes: Ver y Crear alarmas de medicamentos y las alarmas de citas medicas. 
 
+## Release
+[Release](https://github.com/AlejandraNGomez12/uniandes-ux-walter-alejandra-movil/releases/tag/v1.0.0)
+
+
 ## Como ejecutarla
 
 Para ejecutar la aplicación existen dos alternativas:
