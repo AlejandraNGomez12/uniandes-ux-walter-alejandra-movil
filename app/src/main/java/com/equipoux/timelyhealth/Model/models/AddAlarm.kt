@@ -1,4 +1,4 @@
-package com.equipoux.timelyhealth.Model.models
+package com.equipoUX.timelyhealth.model.models
 
 import kotlinx.serialization.Serializable
 import java.util.Date

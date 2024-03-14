@@ -1,4 +1,4 @@
-package com.equipoux.timelyhealth.View.screens
+package com.equipoUX.timelyhealth.view.screens
 
 import android.annotation.SuppressLint
 import android.widget.Toast
@@ -57,9 +57,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.equipoux.timelyhealth.R
-import com.equipoux.timelyhealth.Model.models.AddAlarm
-import com.equipoux.timelyhealth.ViewModel.AlarmAddUiState
+import com.equipoUX.timelyhealth.R
+import com.equipoUX.timelyhealth.model.models.AddAlarm
+import com.equipoUX.timelyhealth.viewModel.AlarmAddUiState
 import kotlinx.coroutines.flow.StateFlow
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -311,7 +311,7 @@ fun AlarmAdd(
                 modifier = Modifier.padding(bottom = 8.dp)
             )
 
-            CustomDatePickerA(state.hasSent, onValueChange = {
+            CustomDatePicker(state.hasSent, onValueChange = {
                 updateField(state.addAlarm.copy(fecha = it))
             })
 
@@ -429,13 +429,13 @@ fun AlarmAdd(
 @Preview
 @Composable
 private fun AlarmAddPreview() {
-    CustomDatePickerA(false, onValueChange = {})
+    CustomDatePicker(false, onValueChange = {})
 }
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CustomDatePickerA(hasSent: Boolean, onValueChange: (Date) -> Unit) {
+fun CustomDatePicker(hasSent: Boolean, onValueChange: (Date) -> Unit) {
 
     val datePickerState = rememberDatePickerState()
 
@@ -545,7 +545,7 @@ fun CustomDatePickerA(hasSent: Boolean, onValueChange: (Date) -> Unit) {
 
 
 @Composable
-fun ErrorMessageA(message: String) {
+fun ErrorMessage(message: String) {
     Text(
         message,
         style = MaterialTheme.typography.labelLarge,

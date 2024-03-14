@@ -1,4 +1,4 @@
-package com.equipoux.timelyhealth.View.screens
+package com.equipoUX.timelyhealth.view.screens
 
 import ErrorScreen
 import LoadingScreen
@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -36,9 +37,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.equipoux.timelyhealth.R
-import com.equipoux.timelyhealth.Model.models.Alarm
-import com.equipoux.timelyhealth.viewModel.AlarmsUiState
+import com.equipoUX.timelyhealth.R
+import com.equipoUX.timelyhealth.model.models.Alarm
+import com.equipoUX.timelyhealth.viewModel.AlarmsUiState
 
 @Composable
 fun AlarmsScreen(state: AlarmsUiState, retryAction: () -> Unit,

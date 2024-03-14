@@ -1,4 +1,4 @@
-package com.equipoux.timelyhealth.View.screens
+package com.equipoUX.timelyhealth.view.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -32,7 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.equipoux.timelyhealth.R
+import com.equipoUX.timelyhealth.R
 
 
 @Composable

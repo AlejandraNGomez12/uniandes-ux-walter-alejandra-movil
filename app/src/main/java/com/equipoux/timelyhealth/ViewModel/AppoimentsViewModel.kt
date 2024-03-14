@@ -1,4 +1,4 @@
-package com.equipoux.timelyhealth.ViewModel
+package com.equipoUX.timelyhealth.viewModel
 
 
 import androidx.compose.runtime.getValue
@@ -9,8 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
-import com.equipoux.timelyhealth.model.Datasource
-import com.equipoux.timelyhealth.Model.models.Appoiment
+import com.equipoUX.timelyhealth.model.Datasource
+import com.equipoUX.timelyhealth.model.models.Appoiment
 import kotlinx.coroutines.launch
 import java.io.IOException
 

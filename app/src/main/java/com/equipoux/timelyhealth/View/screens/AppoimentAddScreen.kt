@@ -1,4 +1,4 @@
-package com.equipoux.timelyhealth.View.screens
+package com.equipoUX.timelyhealth.view.screens
 
 import android.widget.Toast
 import androidx.compose.foundation.background
@@ -13,29 +13,20 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.DatePicker
-import androidx.compose.material3.DatePickerDefaults
-import androidx.compose.material3.DatePickerDialog
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
-import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -54,13 +45,10 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.equipoux.timelyhealth.R
-import com.equipoux.timelyhealth.Model.models.AddAppoiment
-import com.equipoux.timelyhealth.ViewModel.AppoimentAddUiState
+import com.equipoUX.timelyhealth.R
+import com.equipoUX.timelyhealth.model.models.AddAppoiment
+import com.equipoUX.timelyhealth.viewModel.AppoimentAddUiState
 import kotlinx.coroutines.flow.StateFlow
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
 
 
 @Composable
@@ -374,129 +362,3 @@ fun AppoimentAdd(
         }
     }
 }
-
-
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun CustomDatePicker(hasSent: Boolean, onValueChange: (Date) -> Unit) {
-
-    val datePickerState = rememberDatePickerState()
-
-    val formatter = SimpleDateFormat("MMM dd yyyy", Locale("es", "co"))
-    var showDatePicker by remember {
-        mutableStateOf(false)
-    }
-    var selectedDate: Long? by remember {
-        mutableStateOf(null)
-    }
-    val offsetHours = (1000L * 60 * 60 * 5)
-    if (showDatePicker) {
-
-        val scrollState = rememberScrollState()
-
-        DatePickerDialog(
-            modifier = Modifier.verticalScroll(scrollState),
-            colors = DatePickerDefaults.colors(
-                containerColor = Color.LightGray, //calendar background color
-            ),
-            onDismissRequest = {
-                showDatePicker = false
-            },
-            confirmButton = {
-                TextButton(onClick = {
-                    showDatePicker = false
-                    onValueChange(Date(datePickerState.selectedDateMillis!! + offsetHours))
-                    selectedDate = datePickerState.selectedDateMillis!! + offsetHours
-
-                },
-                    colors = ButtonDefaults.textButtonColors(contentColor = colorResource(id = R.color.azul_6)) // Cambia el color del texto del botón de confirmación
-                ) {
-                    Text(
-                        text = stringResource(R.string.add),
-                        color = colorResource(id = R.color.azul_6)
-                    )
-                }
-            },
-            dismissButton = {
-                TextButton(onClick = {
-                    showDatePicker = false
-                },
-                    colors = ButtonDefaults.textButtonColors(contentColor = colorResource(id = R.color.azul_6)) // Cambia el color del texto del botón de cancelación
-                ) {
-                    Text(text = stringResource(R.string.cancel),
-                        color = colorResource(id = R.color.azul_6))
-                }
-            }
-        ) {
-            DatePicker(
-                state = datePickerState,
-                colors = DatePickerDefaults.colors(
-                    titleContentColor = colorResource(id = R.color.azul_6),
-                    selectedDayContainerColor = colorResource(id = R.color.azul_2),
-                    todayContentColor = colorResource(id = R.color.blanco),
-                    todayDateBorderColor = colorResource(id = R.color.azul_2),
-                    dayContentColor =colorResource(id = R.color.azul_6),
-                ),
-                title = {
-                    Text(
-                        text = "Seleccione la fecha",
-                        modifier = Modifier.padding(top = 12.dp, start = 24.dp),
-                        color = colorResource(id = R.color.azul_6)
-                    )
-                },
-                headline = {
-                    Text(
-                        text = datePickerState.selectedDateMillis?.let { formatter.format(Date(it + offsetHours)) }
-                            ?: "",
-                        modifier = Modifier.padding(bottom = 12.dp, start = 24.dp),
-                        color = colorResource(id = R.color.azul_6)
-                    )
-                }
-            )
-        }
-    }
-
-    OutlinedTextField(
-        value = selectedDate?.let { formatter.format(Date(it)) } ?: "",
-        onValueChange = {},
-        label = { Text("Fecha",
-            color = colorResource(id = R.color.azul_6)) },
-        keyboardOptions = KeyboardOptions.Default.copy(
-            imeAction = ImeAction.Next
-        ),
-        readOnly = true,
-        trailingIcon = {
-            IconButton(
-                onClick = { showDatePicker = true }
-            ) {
-                Icon(Icons.Filled.DateRange, contentDescription = "Calendario",tint = colorResource(id = R.color.azul_6) )
-            }
-        },
-        isError = (selectedDate == null) && hasSent,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(bottom = 12.dp)
-            .background(Color.White),
-        colors = TextFieldDefaults.outlinedTextFieldColors(
-            focusedBorderColor = colorResource(id = R.color.azul_6),
-            unfocusedBorderColor = colorResource(id = R.color.azul_6)
-        )
-    )
-
-
-}
-
-@Composable
-fun ErrorMessage(message: String) {
-    Text(
-        message,
-        style = MaterialTheme.typography.labelLarge,
-        color = (colorResource(id = R.color.rojo_4)),
-        textAlign = TextAlign.End,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(bottom = 12.dp)
-    )
-}
-

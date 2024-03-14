@@ -1,8 +1,8 @@
-package com.equipoux.timelyhealth.model
+package com.equipoUX.timelyhealth.model
 
 
-import com.equipoux.timelyhealth.Model.models.Appoiment
-import com.equipoux.timelyhealth.Model.models.Alarm
+import com.equipoUX.timelyhealth.model.models.Appoiment
+import com.equipoUX.timelyhealth.model.models.Alarm
 
 class Datasource {
 

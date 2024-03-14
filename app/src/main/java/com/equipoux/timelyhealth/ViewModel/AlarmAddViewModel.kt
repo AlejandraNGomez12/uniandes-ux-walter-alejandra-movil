@@ -1,4 +1,4 @@
-package com.equipoux.timelyhealth.ViewModel
+package com.equipoUX.timelyhealth.viewModel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
@@ -6,12 +6,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
-import com.equipoux.timelyhealth.Model.models.AddAlarm
+import com.equipoUX.timelyhealth.model.models.AddAlarm
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import coil.network.HttpException
+import retrofit2.HttpException
 import java.io.IOException
 
 data class AlarmAddUiState(

@@ -1,4 +1,4 @@
-package com.equipoux.timelyhealth.Model.models
+package com.equipoUX.timelyhealth.model.models
 
 import java.util.Date
 

@@ -1,4 +1,4 @@
-package com.equipoux.timelyhealth.View.screens
+package com.equipoUX.timelyhealth.view.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -34,7 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.equipoux.timelyhealth.R
+import com.equipoUX.timelyhealth.R
 
 @Composable
 fun WelcomeScreen (
@@ -79,7 +79,7 @@ fun WelcomeScreen (
 
             Button(
                 onClick = {
-
+                    navController.navigate("${TimelyHealthAppScreen.Alarm.name}")
                 },
                 modifier = Modifier
                     .width(150.dp)
@@ -100,8 +100,7 @@ fun WelcomeScreen (
 
             Button(
                 onClick = {
-                    navController.navigate("${TimelyHealthAppScreen.Appoiment.name}")
-                          },
+                    navController.navigate("${TimelyHealthAppScreen.Appoiment.name}") },
                 modifier = Modifier
                     .width(150.dp)
                     .height(70.dp)

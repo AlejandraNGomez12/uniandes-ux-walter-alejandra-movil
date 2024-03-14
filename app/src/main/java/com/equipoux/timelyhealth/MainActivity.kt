@@ -1,4 +1,4 @@
-package com.equipoux.timelyhealth
+package com.equipoUX.timelyhealth
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -8,9 +8,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.equipoux.timelyhealth.View.screens.StartScreen
-import com.equipoux.timelyhealth.View.screens.TimelyHealthApp
-import com.equipoux.timelyhealth.View.screens.StartScreen
+import com.equipoUX.timelyhealth.view.screens.StartScreen
+import com.equipoUX.timelyhealth.view.screens.TimelyHealthApp
 
 
 class MainActivity : ComponentActivity() {
